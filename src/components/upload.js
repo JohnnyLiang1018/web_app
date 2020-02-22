@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 import Select from '@material-ui/core/Select'
 import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/inputlabel'
+import InputLabel from '@material-ui/core/InputLabel'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import { TextField, Input } from '@material-ui/core';
 

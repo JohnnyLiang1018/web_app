@@ -26,7 +26,7 @@ export default function ItemDisplay(){
     const [products,setProducts] = useState([])
     useEffect(() => {
         if(products.length === 0){
-            fetch('/posting')
+            fetch('ip-172-31-29-28.us-east-2.compute.internal/posting')
             .then(response => response.json())
             .then(response => setProducts(response.data))
             .catch(err => console.error(err))

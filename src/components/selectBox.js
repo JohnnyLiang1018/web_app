@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
         width: '30%',
     },
     button:{
-        marginTop: 20
+        marginTop: 20,
+        marginLeft: 5
     },
 }))
 
@@ -28,14 +29,14 @@ export default function SelectBox(props){
     const [category,setCategory] = useState('')
     const search = () => {
         console.log(title.length,category.length)
-        fetch(`/search?title='${title}'&category='${category}'`)
+        fetch(`http://13.58.178.84:4000/search?title=${title}&category=${category}`)
         .then(response => response.json())
         .then(response => props.handler(response.data))
         .catch(err => console.error(err))
     }
 
     const clearSearch = () => {
-        fetch(`/search`)
+        fetch(`http://13.58.178.84:4000/search`)
         .then(response => response.json())
         .then(response => props.handler(response.data))
         .catch(err => console.log(err))
@@ -94,7 +95,7 @@ export default function SelectBox(props){
                 </Select>
             </FormControl>
             <Button className={classes.button} variant="contained" color="primary" onClick={search}>Search</Button>
-            <Button variant="contained" color="primary" onClick={clearSearch}>Clear Search</Button>
+            <Button className={classes.button} variant="contained" color="primary" onClick={clearSearch}>Clear Search</Button>
         </div>
     )
 }

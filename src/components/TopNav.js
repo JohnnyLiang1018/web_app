@@ -24,7 +24,7 @@ export default function TopNav(){
     return (
             <div style={topnav}>
                 <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                Menu
+                    <font color="white">Menu</font>
                 </Button>
                 <Menu
                     id="simple-menu"

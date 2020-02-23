@@ -18,6 +18,10 @@ const useStyles = makeStyles({
         height:350,
         width:500,
     },
+    image:{
+        maxHeight:350,
+        maxWidth:500,
+    }
 })
 
 export default function MediaCard(props){
@@ -27,9 +31,10 @@ export default function MediaCard(props){
             <CardActionArea>
                 <CardMedia 
                     className={classes.media}
-                    image={`https://kagaribucket1.s3-us-west-1.amazonaws.com/images/${props.listing_id}.jpg`}
                     title={props.title} 
-                />
+                >
+                    <img src={`https://kagaribucket1.s3-us-west-1.amazonaws.com/images/${props.listing_id}.jpg`} className={classes.image}/>
+                </CardMedia>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.title}

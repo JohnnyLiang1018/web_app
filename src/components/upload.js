@@ -42,7 +42,7 @@ export default function Upload(){
         const formData = new FormData()
         formData.append('file',file)
         try{
-            const res = await axios.post(`http://13.58.178.84:4000/upload?title=${title}&category=${category}&description=${description}&price=${price}&quantity=${quantity}`,formData,{
+            const res = await axios.post(`http://13.58.162.75:4000/upload?title=${title}&category=${category}&description=${description}&price=${price}&quantity=${quantity}`,formData,{
                 header:{
                     'Content-Type': 'multipart/form-data'
                 }

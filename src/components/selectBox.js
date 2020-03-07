@@ -29,14 +29,14 @@ export default function SelectBox(props){
     const [category,setCategory] = useState('')
     const search = () => {
         console.log(title.length,category.length)
-        fetch(`http://13.58.178.84:4000/search?title=${title}&category=${category}`)
+        fetch(`http://13.58.162.75:4000/search?title=${title}&category=${category}`)
         .then(response => response.json())
         .then(response => props.handler(response.data))
         .catch(err => console.error(err))
     }
 
     const clearSearch = () => {
-        fetch(`http://13.58.178.84:4000/search`)
+        fetch(`http://13.58.162.75:4000/search`)
         .then(response => response.json())
         .then(response => props.handler(response.data))
         .catch(err => console.log(err))

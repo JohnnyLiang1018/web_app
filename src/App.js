@@ -1,37 +1,35 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopNav from './components/TopNav'
 import ItemDisplay from './components/itemDisplay'
 import Upload from './components/upload'
+import { Fab } from '@material-ui/core';
+
 
 const postSection = {
   margin: 'auto',
   width:'60%'
 }
 
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      product: {
-        title:'',
-        category:'',
-        description:'',
-        price: 0,
-        quantity: 0,
-      }
-    }
-    this.addProduct = this.addProduct.bind(this)
-  }
+export default function App() {
+    const [loginState,setLoginState] = useState('')
 
-  addProduct = _ =>{
-    const {product} = this.state
-    fetch(`/posting/add?title=${product.title}&category=${product.category}&description=${product.description}&price=${product.price}&quantity=${product.quantity}`)
-    .then(this.getProducts)
-    .catch(err => console.error(err))
-  }
-  
-  render(){
-    const { product } = this.state
+    useEffect(() => {
+      // FB.getLoginStatus(function(response){
+      //     setLoginState(response.status)
+      //     console.log(loginState)
+      // })
+      document.addEventListener('FBObjectReady', FBLogin)
+
+    })
+    
+    const FBLogin = () => {
+      window.FB.getLoginStatus(function(response){
+        setLoginState(response.status)
+        console.log(response.status)
+      })
+    }
+
+
     return (
       <div className="App">
         <TopNav/>
@@ -60,7 +58,4 @@ class App extends Component {
       </div>
     )
   }
-}
 
-
-export default App
